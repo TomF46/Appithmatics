@@ -23,7 +23,6 @@ class QuestionsService {
             var question = this.generateQuestion(includedUnits, secondaryUnits, operands);
             questions.push(question);
         }
-
         return this.ensureNoDuplicates(questions);
     }
 
@@ -38,15 +37,23 @@ class QuestionsService {
             return question;
         }
 
+        if(question.method == Methods.Subtraction){
+            question = this.formatSubtraction(question);
+            return question;
+        }
+
         //50% chance of flipping factors
-        if(this.shouldRandomise()) return this.flipFactors(question.firstNumber, question.secondNumber, method);
+        if(this.shouldRandomise() && question.method != Methods.Subtraction ) return this.flipFactors(question.firstNumber, question.secondNumber, method);
         return question;
     }
 
     getMethod(operands){
-        var methods = [operands.multiplication, operands.division]
+        var methods = [operands.multiplication, operands.division, operands.addition, operands.subtraction]
+
         var method = this.getMethodUsingOdds(methods);
-        if(method == operands.multiplication) return Methods.Multiplication
+        if(method == operands.multiplication) return Methods.Multiplication;
+        if(method == operands.addition) return Methods.Addition;
+        if(method == operands.subtraction) return Methods.Subtraction;
 
 
         return Methods.Division;
@@ -59,6 +66,14 @@ class QuestionsService {
     formatDivision(question){
         var firstValue = question.firstNumber * question.secondNumber;
         question.firstNumber = firstValue;
+        return question;
+    }
+
+    formatSubtraction(question){
+        if(question.firstNumber >= question.secondNumber) return question;
+        var tempN1 = question.firstNumber;
+        question.firstNumber = question.secondNumber;
+        question.secondNumber = tempN1;
         return question;
     }
 

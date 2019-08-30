@@ -51,6 +51,8 @@ export default {
       },
       operand(){
           if(this.activeQuestion.method == Methods.Division) return "÷";
+          if(this.activeQuestion.method == Methods.Addition) return "+";
+          if(this.activeQuestion.method == Methods.Subtraction) return "-";
 
           return "x";
       },

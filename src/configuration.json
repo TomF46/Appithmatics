@@ -5,10 +5,16 @@
             "numberOfQuestions" : 33,
             "operands":{
                 "multiplication": {
-                    "chance": 1
+                    "chance": 0.33
                 },
                 "division" : {
                     "chance": 0
+                },
+                "addition" :{
+                    "chance": 0.33
+                },
+                "subtraction" : {
+                    "chance" : 0.33
                 }
             },
             "includedNumbers" : [2,3,5,10],
@@ -26,10 +32,16 @@
             "numberOfQuestions" : 44,
             "operands":{
                 "multiplication": {
-                    "chance": 1
+                    "chance": 0.70
                 },
                 "division" : {
                     "chance": 0
+                },
+                "addition" :{
+                    "chance": 0.15
+                },
+                "subtraction" : {
+                    "chance" : 0.15
                 }
             },
             "includedNumbers" : [2,3,4,5,6,10],
@@ -47,10 +59,16 @@
             "numberOfQuestions" : 55,
             "operands":{
                 "multiplication": {
-                    "chance": 1
+                    "chance": 0.7
                 },
                 "division" : {
                     "chance": 0
+                },
+                "addition" :{
+                    "chance": 0.15
+                },
+                "subtraction" : {
+                    "chance" : 0.15
                 }
             },
             "includedNumbers" : [2,3,4,5,6,7,8,10],
@@ -72,6 +90,12 @@
                 },
                 "division" : {
                     "chance": 0
+                },
+                "addition" :{
+                    "chance": 0
+                },
+                "subtraction" : {
+                    "chance" : 0
                 }
             },
             "includedNumbers" : [2,3,4,5,6,7,8,9,10,11,12],
@@ -89,10 +113,16 @@
             "numberOfQuestions" : 77,
             "operands":{
                 "multiplication": {
-                    "chance": 0
+                    "chance": 0.5
                 },
                 "division" : {
-                    "chance": 1
+                    "chance": 0.30
+                },
+                "addition" :{
+                    "chance": 0.10
+                },
+                "subtraction" : {
+                    "chance" : 0.10
                 }
             },
             "includedNumbers" : [2,3,4,5,6,7,8,9,10,11,12],
@@ -110,10 +140,16 @@
             "numberOfQuestions" : 88,
             "operands":{
                 "multiplication": {
-                    "chance": 0.75
+                    "chance": 0.60
                 },
                 "division" : {
-                    "chance": 0.25
+                    "chance": 0.20
+                },
+                "addition" :{
+                    "chance": 0.10
+                },
+                "subtraction" : {
+                    "chance" : 0.10
                 }
             },
             "includedNumbers" : [2,3,4,5,6,7,8,9,10,11,12],
@@ -135,6 +171,12 @@
                 },
                 "division" : {
                     "chance": 0.25
+                },
+                "addition" :{
+                    "chance": 0
+                },
+                "subtraction" : {
+                    "chance" : 0
                 }
             },
             "includedNumbers" : [2,3,4,5,6,7,8,9,10,11,12],
