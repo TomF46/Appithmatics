@@ -1,7 +1,7 @@
 {
     "questionSets" : [
         {
-            "name" : "33 Club",
+            "name" : "33 Questions",
             "numberOfQuestions" : 5,
             "operands":{
                 "multiplication": {
@@ -22,7 +22,7 @@
             ]
         },
         {
-            "name" : "44 Club",
+            "name" : "44 Questions",
             "numberOfQuestions" : 44,
             "operands":{
                 "multiplication": {
@@ -43,7 +43,7 @@
             ]
         },
         {
-            "name" : "55 Club",
+            "name" : "55 Questions",
             "numberOfQuestions" : 55,
             "operands":{
                 "multiplication": {
@@ -64,7 +64,7 @@
             ]
         },
         {
-            "name" : "66 Club",
+            "name" : "66 Questions",
             "numberOfQuestions" : 66,
             "operands":{
                 "multiplication": {
@@ -85,7 +85,7 @@
             ]
         },
         {
-            "name" : "77 Club",
+            "name" : "77 Questions",
             "numberOfQuestions" : 66,
             "operands":{
                 "multiplication": {
@@ -106,7 +106,7 @@
             ]
         },
         {
-            "name" : "88 Club",
+            "name" : "88 Questions",
             "numberOfQuestions" : 88,
             "operands":{
                 "multiplication": {
@@ -127,7 +127,7 @@
             ]
         },
         {
-            "name" : "99 Club",
+            "name" : "99 Questions",
             "numberOfQuestions" : 99,
             "operands":{
                 "multiplication": {

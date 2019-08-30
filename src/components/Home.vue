@@ -2,7 +2,8 @@
   <div class="home">
     <img src="../assets/logo.jpg" class="logo" />
     <h2>Welcome to Appathematics</h2>
-    <p>Choose your club level from the drop down below and click the start button to begin</p>
+    <p>Choose your level from the drop down below and click the start button to begin</p>
+    <p>The higher the number of questions the harder the possible questions become</p>
     <select id="soflow-color" v-model="viewingSet">
       <option v-for="(set, i) in questionSets" :key="i" :value="set" >{{set.name}}</option>
     </select>
