@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'curse_casualregular';
+    src: url('fonts/curse_casual-webfont.woff2') format('woff2'),
+          url('fonts/curse_casual-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+  }
