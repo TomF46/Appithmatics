@@ -50,7 +50,7 @@ header {
   background-color: #219ff4;
   color: #fff;
   position: relative;
-  box-shadow: 0 4px 2px -2px blue;
+  box-shadow: 0 4px 2px -2px #1a7fc3;
   position: fixed;
   width: 100vw;
   z-index: 9999999;

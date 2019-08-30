@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img src="../assets/logo.jpg" class="logo" />
-    <h2>Welcome to Appathematics</h2>
+    <h2 class="welcome">Welcome to Appathematics</h2>
     <p>Choose your level from the drop down below and click the start button to begin</p>
     <p>The higher the number of questions the harder the possible questions become</p>
     <select id="soflow-color" v-model="viewingSet">
@@ -142,6 +142,11 @@ select#soflow-color {
    border-radius: 20px;
    padding-left: 15px;
 }
+
+.welcome{
+  margin-top: 0px;
+}
+
 @media only screen and (max-width: 800px) and (orientation: landscape) {
   .best-score {
     margin-top: 10px;
