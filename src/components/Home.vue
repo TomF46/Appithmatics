@@ -1,0 +1,149 @@
+<template>
+  <div class="home">
+    <img src="../assets/logo.jpg" class="logo" />
+    <h2>Welcome to Appathematics</h2>
+    <p>Choose your club level from the drop down below and click the start button to begin</p>
+    <select id="soflow-color" v-model="viewingSet">
+      <option v-for="(set, i) in questionSets" :key="i" :value="set" >{{set.name}}</option>
+    </select>
+    <div v-if="viewingSet">
+      <button class="btn startBtn round" @click="start">Start</button>
+      <appathematics-leaderboard :scores="viewingSet.scoreHistory"></appathematics-leaderboard>    
+    </div>
+  </div>
+</template>
+
+<script>
+import Leaderboard from './Leaderboard.vue';
+export default {
+  name: "home",
+  components:{
+    "appathematics-leaderboard" : Leaderboard
+  },
+  data() {
+    return {
+      viewingSet: null,
+    };
+  },
+  computed: {
+    questionSets() {
+      return this.$store.state.questionSets;
+    },
+  },
+  methods: {
+    start() {
+      this.$store.commit("setSelectedQuestionSet", this.viewingSet);
+      this.$router.push("/play");
+    },
+    getLeaderboards() {
+      this.$storage.get("scoreHistory").then(history => {
+        this.questionSets.forEach(set => {
+          set.scoreHistory = set.initialHighScores;
+          if(history == null) {
+            return;
+          }
+
+          var scores = history.filter(score =>{ 
+            return score.name == set.name;
+          })
+          if(scores.length > 0) set.scoreHistory = set.scoreHistory.concat(scores);
+        });
+        this.setDefaultViewingState();
+        this.$forceUpdate();
+      });
+    },
+    setDefaultViewingState(){
+      this.$storage.get("latestViewedSet").then(set => {
+        if(set == null){
+          this.viewingSet = this.questionSets[0];
+          return;
+        }
+        this.viewingSet = this.questionSets.find(questionSet => {
+          return questionSet.name == set.name;
+        })
+      })
+    }
+  },
+  mounted() {
+    this.getLeaderboards();
+  },
+  watch:{
+    viewingSet(){
+      this.$storage.set("latestViewedSet", this.viewingSet);
+    }
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style>
+.home{
+  margin-bottom: 10px;
+}
+.logo{
+  width: 200px;
+}
+.relative{
+  position: relative;
+}
+.startBtn {
+  padding: 20px 40px;
+  margin-top: 20px;
+}
+.startBtn.middle {
+  position: absolute;
+  top: 50%;
+}
+.home .intro-text {
+  margin-top: 10%;
+}
+
+.best-score h1{
+  margin: 5px 0;
+}
+
+.set-select{
+  margin-top: 20px;
+  width: 200px;
+  font-size: 26px;
+  text-align: center;
+  color: #219ff4;
+}
+
+select#soflow, select#soflow-color {
+  text-align-last:center;
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: 26px;
+   margin: 20px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+select#soflow-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#219ff4, #219ff4 40%, #219ff4);
+   background-color: #219ff4;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+@media only screen and (max-width: 800px) and (orientation: landscape) {
+  .best-score {
+    margin-top: 10px;
+  }
+}
+</style>

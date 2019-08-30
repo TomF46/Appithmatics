@@ -1,1 +1,1 @@
-# Appithmatics
+# appathematics
