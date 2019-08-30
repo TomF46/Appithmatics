@@ -2,7 +2,7 @@
     "questionSets" : [
         {
             "name" : "33 Questions",
-            "numberOfQuestions" : 5,
+            "numberOfQuestions" : 33,
             "operands":{
                 "multiplication": {
                     "chance": 1
@@ -86,7 +86,7 @@
         },
         {
             "name" : "77 Questions",
-            "numberOfQuestions" : 66,
+            "numberOfQuestions" : 77,
             "operands":{
                 "multiplication": {
                     "chance": 0
