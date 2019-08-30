@@ -72,7 +72,6 @@ export default {
           if(this.questionIndex == this.questions.length) this.handleQuizComplete();
       },
       handleIncorrectAnswer(){
-          this.playSound('./static/sounds/frog.wav');
           this.$nextTick(() => {
               this.inputClass = "incorrect";
           })
