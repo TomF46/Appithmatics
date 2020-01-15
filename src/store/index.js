@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import Configuration from '../configuration.json';
+import TestConfiguration from '../configuration.dev.json';
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
@@ -62,8 +63,17 @@ const store = new Vuex.Store({
     actions:{
         loadConfiguration({commit}){
             return new Promise((resolve, reject) => {
-                commit("setConfiguration", Configuration);
-                commit("setQuestionSets", Configuration.questionSets);
+
+                var configuration = {};
+
+                if(process.env.NODE_ENV == "development"){
+                    configuration = TestConfiguration
+                }else{
+                    configuration = Configuration
+                }
+
+                commit("setConfiguration", configuration);
+                commit("setQuestionSets", configuration.questionSets);
                 resolve();
             });
         }
