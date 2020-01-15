@@ -8,6 +8,7 @@
           <vue-stopwatch ref="stopwatch"></vue-stopwatch>
       </span> 
       <span class="header-span" v-if="currentRoute == '/summary'">Summary</span>
+      <span class="header-span" v-if="currentRoute == '/leaderboards'">Leaderboards</span>
     </header>
 </template>
 

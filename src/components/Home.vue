@@ -4,23 +4,19 @@
     <h2 class="welcome">Welcome to Appathematics</h2>
     <p>Choose your level from the drop down below and click the start button to begin</p>
     <p>The higher the number of questions the harder the possible questions become</p>
-    <select id="soflow-color" v-model="viewingSet">
+    <select id="custom-select" v-model="viewingSet">
       <option v-for="(set, i) in questionSets" :key="i" :value="set" >{{set.name}}</option>
     </select>
     <div v-if="viewingSet">
       <button class="btn startBtn round" @click="start">Start</button>
-      <appathematics-leaderboard :scores="viewingSet.scoreHistory"></appathematics-leaderboard>    
     </div>
+    <router-link id="leaderboard-link" to="/leaderboards">View Leaderboards</router-link>
   </div>
 </template>
 
 <script>
-import Leaderboard from './Leaderboard.vue';
 export default {
   name: "home",
-  components:{
-    "appathematics-leaderboard" : Leaderboard
-  },
   data() {
     return {
       viewingSet: null,
@@ -36,7 +32,7 @@ export default {
       this.$store.commit("setSelectedQuestionSet", this.viewingSet);
       this.$router.push("/play");
     },
-    getLeaderboards() {
+    setLeaderboards() {
       this.$storage.get("scoreHistory").then(history => {
         this.questionSets.forEach(set => {
           set.scoreHistory = set.initialHighScores;
@@ -66,7 +62,7 @@ export default {
     }
   },
   mounted() {
-    this.getLeaderboards();
+    this.setLeaderboards();
   },
   watch:{
     viewingSet(){
@@ -89,7 +85,7 @@ export default {
 }
 .startBtn {
   padding: 20px 40px;
-  margin-top: 20px;
+  margin: 20px 0px 20px 0px;
 }
 .startBtn.middle {
   position: absolute;
@@ -111,7 +107,7 @@ export default {
   color: #219ff4;
 }
 
-select#soflow, select#soflow-color {
+select#soflow, select#custom-select {
   text-align-last:center;
    -webkit-appearance: button;
    -webkit-border-radius: 2px;
@@ -137,7 +133,7 @@ select#soflow, select#soflow-color {
     text-overflow: '';
 }
 
-select#soflow-color {
+select#custom-select {
    color: #fff;
    background-image: url(/static/img/dropdown.png), -webkit-linear-gradient(#219ff4, #219ff4 40%, #219ff4);
    background-color: #219ff4;
@@ -148,12 +144,17 @@ select#soflow-color {
 }
 
 /* IE fix for custom select box */
-select#soflow-color::-ms-expand {
+select#custom-select::-ms-expand {
     display: none;
 }
 
 .welcome{
   margin-top: 0px;
+}
+
+#leaderboard-link{
+  color: #219ff4;
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 800px) and (orientation: landscape) {

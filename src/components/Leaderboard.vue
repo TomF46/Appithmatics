@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h2>Leaderboard</h2>
+      <h2 v-if="currentRoute == '/summary'">Local Leaderboard</h2>
       <table class="leaderboard">
         <thead>
           <th>Username</th>
@@ -35,6 +35,9 @@ export default {
         (score1, score2) => score2.score - score1.score
       );
       return descendingScores.reverse().slice(0, 5);
+    },
+    currentRoute(){
+        return this.$route.path
     }
   },
   methods: {}
