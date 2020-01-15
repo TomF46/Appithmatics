@@ -131,6 +131,10 @@ select#soflow, select#soflow-color {
    text-overflow: ellipsis;
    white-space: nowrap;
    width: 300px;
+   -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
 }
 
 select#soflow-color {
@@ -141,6 +145,11 @@ select#soflow-color {
    -moz-border-radius: 20px;
    border-radius: 20px;
    padding-left: 15px;
+}
+
+/* IE fix for custom select box */
+select#soflow-color::-ms-expand {
+    display: none;
 }
 
 .welcome{
