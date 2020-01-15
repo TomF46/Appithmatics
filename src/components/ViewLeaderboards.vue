@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-    <select id="custom-select" v-model="viewingSet">
-      <option v-for="(set, i) in questionSets" :key="i" :value="set" >{{set.name}}</option>
-    </select>
+    <set-select @setSelected="setSelected"></set-select>
     <div v-if="viewingSet">
       <appathematics-leaderboard :scores="viewingSet.scoreHistory"></appathematics-leaderboard>    
     </div>
@@ -11,59 +9,23 @@
 
 <script>
 import Leaderboard from './Leaderboard.vue';
+import SetSelect from './SetSelect.vue';
 export default {
   name: "home",
   components:{
-    "appathematics-leaderboard" : Leaderboard
+    "appathematics-leaderboard" : Leaderboard,
+    SetSelect
   },
   data() {
     return {
       viewingSet: null,
     };
   },
-  computed: {
-    questionSets() {
-      return this.$store.state.questionSets;
-    },
-  },
   methods: {
-    getLeaderboards() {
-      this.$storage.get("scoreHistory").then(history => {
-        this.questionSets.forEach(set => {
-          set.scoreHistory = set.initialHighScores;
-          if(history == null) {
-            return;
-          }
-
-          var scores = history.filter(score =>{ 
-            return score.name == set.name;
-          })
-          if(scores.length > 0) set.scoreHistory = set.scoreHistory.concat(scores);
-        });
-        this.setDefaultViewingState();
-        this.$forceUpdate();
-      });
-    },
-    setDefaultViewingState(){
-      this.$storage.get("latestViewedSet").then(set => {
-        if(set == null){
-          this.viewingSet = this.questionSets[0];
-          return;
-        }
-        this.viewingSet = this.questionSets.find(questionSet => {
-          return questionSet.name == set.name;
-        })
-      })
-    }
+      setSelected(set){
+          this.viewingSet = set;
+      }
   },
-  mounted() {
-    this.getLeaderboards();
-  },
-  watch:{
-    viewingSet(){
-      this.$storage.set("latestViewedSet", this.viewingSet);
-    }
-  }
 };
 </script>
 
