@@ -30,8 +30,7 @@ export default {
   },
   computed: {
     leaderboard() {
-      var scores = this.scores;
-      var descendingScores = scores.sort(
+      let descendingScores = this.scores.sort(
         (score1, score2) => score2.score - score1.score
       );
       return descendingScores.reverse().slice(0, 5);

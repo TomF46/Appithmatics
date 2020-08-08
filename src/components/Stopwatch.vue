@@ -30,18 +30,18 @@ export default {
       return this.currentTime - this.$data.startTime;
     },
     hours: function () {
-      var lapsed = this.milliseconds;
-      var hrs = Math.floor(lapsed / 1000 / 60 / 60);
+      const lapsed = this.milliseconds;
+      const hrs = Math.floor(lapsed / 1000 / 60 / 60);
       return hrs >= 10 ? hrs : "0" + hrs;
     },
     minutes: function () {
-      var lapsed = this.milliseconds;
-      var min = Math.floor((lapsed / 1000 / 60) % 60);
+      const lapsed = this.milliseconds;
+      const min = Math.floor((lapsed / 1000 / 60) % 60);
       return min >= 10 ? min : "0" + min;
     },
     seconds: function () {
-      var lapsed = this.milliseconds;
-      var sec = Math.floor((lapsed / 1000) % 60);
+      const lapsed = this.milliseconds;
+      const sec = Math.floor((lapsed / 1000) % 60);
       return sec >= 10 ? sec : "0" + sec;
     },
     quizComplete() {
@@ -73,7 +73,7 @@ export default {
       }
     },
     getScore() {
-      var score = 0;
+      let score = 0;
       score = score + Number(this.minutes) * 60;
       score = score + Number(this.seconds);
       return score;
@@ -87,7 +87,7 @@ export default {
       if (!this.quizComplete) return;
 
       this.pause();
-      var result = {
+      const result = {
         name: this.selectedQuestionSet.name,
         score: this.getScore(),
         displayScore: this.time,

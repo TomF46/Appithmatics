@@ -43,10 +43,9 @@ export default {
       this.$router.push("/play");
     },
     submit() {
-      console.log(this.name);
       if (this.name == null || this.name == "") return;
 
-      var result = this.latestScore;
+      const result = this.latestScore;
       this.latestScore.username = this.name;
 
       this.$storage.get("scoreHistory").then((history) => {

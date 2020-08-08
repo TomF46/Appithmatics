@@ -14,22 +14,22 @@ class AnswersService {
   }
 
   checkDivision(userAnswer, firstNumber, secondNumber) {
-    var answer = firstNumber / secondNumber;
+    const answer = firstNumber / secondNumber;
     return userAnswer == answer;
   }
 
   checkMultiplication(userAnswer, firstNumber, secondNumber) {
-    var answer = firstNumber * secondNumber;
+    const answer = firstNumber * secondNumber;
     return userAnswer == answer;
   }
 
   checkAddition(userAnswer, firstNumber, secondNumber) {
-    var answer = firstNumber + secondNumber;
+    const answer = firstNumber + secondNumber;
     return userAnswer == answer;
   }
 
   checkSubtraction(userAnswer, firstNumber, secondNumber) {
-    var answer = firstNumber - secondNumber;
+    const answer = firstNumber - secondNumber;
     return userAnswer == answer;
   }
 }

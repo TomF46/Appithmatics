@@ -27,9 +27,9 @@ class QuestionsService {
   }
 
   generateSet(numberOfQuestions, includedUnits, secondaryUnits, operands) {
-    var questions = [];
-    for (var i = 0; i < numberOfQuestions; i++) {
-      var question = this.generateQuestion(
+    let questions = [];
+    for (let i = 0; i < numberOfQuestions; i++) {
+      const question = this.generateQuestion(
         includedUnits,
         secondaryUnits,
         operands
@@ -40,9 +40,9 @@ class QuestionsService {
   }
 
   generateQuestion(includedUnits, secondaryUnits, operands) {
-    var method = this.getMethod(operands);
+    const method = this.getMethod(operands);
 
-    var question = {
+    let question = {
       firstNumber: this.getRandomValue(includedUnits),
       secondNumber: this.getRandomValue(secondaryUnits),
       method: method
@@ -69,14 +69,14 @@ class QuestionsService {
   }
 
   getMethod(operands) {
-    var methods = [
+    const methods = [
       operands.multiplication,
       operands.division,
       operands.addition,
       operands.subtraction
     ];
 
-    var method = this.getMethodUsingOdds(methods);
+    const method = this.getMethodUsingOdds(methods);
     if (method == operands.multiplication) return Methods.Multiplication;
     if (method == operands.addition) return Methods.Addition;
     if (method == operands.subtraction) return Methods.Subtraction;
@@ -89,27 +89,27 @@ class QuestionsService {
   }
 
   formatDivision(question) {
-    var firstValue = question.firstNumber * question.secondNumber;
+    const firstValue = question.firstNumber * question.secondNumber;
     question.firstNumber = firstValue;
     return question;
   }
 
   formatSubtraction(question) {
     if (question.firstNumber >= question.secondNumber) return question;
-    var tempN1 = question.firstNumber;
+    const tempN1 = question.firstNumber;
     question.firstNumber = question.secondNumber;
     question.secondNumber = tempN1;
     return question;
   }
 
   ensureNoDuplicates(questions) {
-    var requiresCheck = true;
+    let requiresCheck = true;
 
     while (requiresCheck) {
-      var duplicateCount = 0;
+      let duplicateCount = 0;
 
       questions.forEach((question, index) => {
-        var matching = questions.filter(
+        const matching = questions.filter(
           comparand =>
             question.firstNumber == comparand.firstNumber &&
             question.secondNumber == comparand.secondNumber
@@ -144,13 +144,13 @@ class QuestionsService {
   }
 
   getMethodUsingOdds(methods) {
-    var sum = 0;
-    for (var i = 0; i < methods.length; i++) {
+    let sum = 0;
+    for (let i = 0; i < methods.length; i++) {
       sum += methods[i].chance;
     }
-    var rnd = Math.floor(Math.random() * (sum * 100));
-    var counter = 0;
-    for (var i = 0; i < methods.length; i++) {
+    const rnd = Math.floor(Math.random() * (sum * 100));
+    let counter = 0;
+    for (let i = 0; i < methods.length; i++) {
       counter += methods[i].chance * 100;
       if (counter > rnd) {
         return methods[i];

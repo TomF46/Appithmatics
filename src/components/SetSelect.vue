@@ -26,7 +26,7 @@ export default {
             return;
           }
 
-          var scores = history.filter((score) => {
+          const scores = history.filter((score) => {
             return score.name == set.name;
           });
           if (scores.length > 0)

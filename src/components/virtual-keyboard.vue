@@ -74,7 +74,7 @@ export default {
         return;
       }
 
-      var key = String.fromCharCode(e.keyCode);
+      const key = String.fromCharCode(e.keyCode);
       if (!isNaN(key)) this.$emit("keyClicked", key);
     });
   },

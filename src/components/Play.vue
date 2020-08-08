@@ -75,7 +75,7 @@ export default {
   methods: {
     submitAnswer() {
       this.resetInputClass();
-      var isCorrect = this.answersService.checkIfCorrect(
+      const isCorrect = this.answersService.checkIfCorrect(
         this.currentAnswer,
         this.activeQuestion.firstNumber,
         this.activeQuestion.secondNumber,
@@ -127,7 +127,7 @@ export default {
     },
     playSound(sound) {
       if (sound) {
-        var audio = new Audio(sound);
+        const audio = new Audio(sound);
         audio.play();
       }
     },
