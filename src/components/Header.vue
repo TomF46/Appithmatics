@@ -1,45 +1,45 @@
 <template>
-    <header>
-      <div class="back-button" @click="backToHome()" v-if="currentRoute !='/'">
-        <i @click="backToHome()" class="material-icons">arrow_back</i>
-      </div>
-      <span class="header-span" v-if="currentRoute == '/'">Appathematics</span>
-      <span class="header-span" v-if="currentRoute == '/play'">
-          <vue-stopwatch ref="stopwatch"></vue-stopwatch>
-      </span> 
-      <span class="header-span" v-if="currentRoute == '/summary'">Summary</span>
-      <span class="header-span" v-if="currentRoute == '/leaderboards'">Leaderboards</span>
-    </header>
+  <header>
+    <div class="back-button" @click="backToHome()" v-if="currentRoute !='/'">
+      <i @click="backToHome()" class="material-icons">arrow_back</i>
+    </div>
+    <span class="header-span" v-if="currentRoute == '/'">Appathematics</span>
+    <span class="header-span" v-if="currentRoute == '/play'">
+      <vue-stopwatch ref="stopwatch"></vue-stopwatch>
+    </span>
+    <span class="header-span" v-if="currentRoute == '/summary'">Summary</span>
+    <span class="header-span" v-if="currentRoute == '/leaderboards'">Leaderboards</span>
+  </header>
 </template>
 
 <script>
-import Stopwatch from './Stopwatch'
+import Stopwatch from "./Stopwatch";
 
 export default {
   name: "appathematics-header",
-  components:{
-      "vue-stopwatch" : Stopwatch
+  components: {
+    "vue-stopwatch": Stopwatch,
   },
   data() {
     return {};
   },
-  computed:{
-    inProgress(){
-        return this.$store.state.isInProgress;
+  computed: {
+    inProgress() {
+      return this.$store.state.isInProgress;
     },
-    quizComplete(){
-        return this.$store.state.quizComplete;
+    quizComplete() {
+      return this.$store.state.quizComplete;
     },
-    currentRoute(){
-        return this.$route.path
-    }
+    currentRoute() {
+      return this.$route.path;
+    },
   },
-  methods:{
-      backToHome(){
-        this.$store.commit("setIsInProgress", false)
-        this.$store.commit("setQuizComplete", false);
-        this.$router.push("/");
-    }
+  methods: {
+    backToHome() {
+      this.$store.commit("setIsInProgress", false);
+      this.$store.commit("setQuizComplete", false);
+      this.$router.push("/");
+    },
   },
 };
 </script>
@@ -56,15 +56,15 @@ header {
   width: 100vw;
   z-index: 9999999;
 }
-.back-button{
-    position: absolute;
-    top: 25%;
-    z-index: 999;
-    margin-left: 10px;
+.back-button {
+  position: absolute;
+  top: 25%;
+  z-index: 999;
+  margin-left: 10px;
 }
-.back-button .material-icons{
-    font-size: 36px;
-    cursor: pointer;
+.back-button .material-icons {
+  font-size: 36px;
+  cursor: pointer;
 }
 
 header .header-span {
@@ -79,7 +79,7 @@ header .header-span {
   text-align: center;
 }
 
-header .time{
-    padding: none;
+header .time {
+  padding: none;
 }
 </style>

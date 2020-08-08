@@ -1,29 +1,29 @@
 <template>
-    <div>
-      <h2 v-if="currentRoute == '/summary'">Local Leaderboard</h2>
-      <table class="leaderboard">
-        <thead>
-          <th>Username</th>
-          <th>Time</th>
-          <th>Date</th>
-        </thead>
-        <tbody>
-          <tr v-for="(entry, i) in leaderboard" :key="i">
-            <td>{{entry.username}}</td>
-            <td>{{entry.displayScore}}</td>
-            <td v-if="entry.date != null">{{$moment(entry.date).format("DD/MM/YYYY")}}</td>
-            <td v-else>-</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div>
+    <h2 v-if="currentRoute == '/summary'">Local Leaderboard</h2>
+    <table class="leaderboard">
+      <thead>
+        <th>Username</th>
+        <th>Time</th>
+        <th>Date</th>
+      </thead>
+      <tbody>
+        <tr v-for="(entry, i) in leaderboard" :key="i">
+          <td>{{entry.username}}</td>
+          <td>{{entry.displayScore}}</td>
+          <td v-if="entry.date != null">{{$moment(entry.date).format("DD/MM/YYYY")}}</td>
+          <td v-else>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
 export default {
   name: "appathematics-leaderboard",
   props: {
-    scores: Array
+    scores: Array,
   },
   data() {
     return {};
@@ -36,11 +36,11 @@ export default {
       );
       return descendingScores.reverse().slice(0, 5);
     },
-    currentRoute(){
-        return this.$route.path
-    }
+    currentRoute() {
+      return this.$route.path;
+    },
   },
-  methods: {}
+  methods: {},
 };
 </script>
 

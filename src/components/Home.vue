@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import SetSelect from './SetSelect.vue';
+import SetSelect from "./SetSelect.vue";
 export default {
   name: "home",
   data() {
@@ -21,30 +21,30 @@ export default {
       viewingSet: null,
     };
   },
-  components:{
-    SetSelect
+  components: {
+    SetSelect,
   },
   methods: {
     start() {
       this.$store.commit("setSelectedQuestionSet", this.viewingSet);
       this.$router.push("/play");
     },
-    setSelected(set){
+    setSelected(set) {
       this.viewingSet = set;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-.home{
+.home {
   margin-bottom: 10px;
 }
-.logo{
+.logo {
   width: 200px;
 }
-.relative{
+.relative {
   position: relative;
 }
 .startBtn {
@@ -59,11 +59,11 @@ export default {
   margin-top: 10%;
 }
 
-.welcome{
+.welcome {
   margin-top: 0px;
 }
 
-#leaderboard-link{
+#leaderboard-link {
   color: #219ff4;
   text-decoration: underline;
 }

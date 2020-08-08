@@ -1,21 +1,21 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './App'
-import router from './router'
-import StorageService from './services/storage.service';
-import store from './store/index'
-import moment from 'moment';
+import Vue from "vue";
+import App from "./App";
+import router from "./router";
+import StorageService from "./services/storage.service";
+import store from "./store/index";
+import moment from "moment";
 
 Vue.prototype.$storage = StorageService;
 Vue.prototype.$moment = moment;
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  el: "#app",
   router,
   store,
-  template: '<App/>',
+  template: "<App/>",
   components: { App }
-})
+});
