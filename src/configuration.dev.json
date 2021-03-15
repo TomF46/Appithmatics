@@ -22,7 +22,7 @@
       "initialHighScores": [
         { "username": "Tom", "score": 200, "displayScore": "03:20" },
         { "username": "Jenny", "score": 221, "displayScore": "03:41" },
-        { "username": "Steve", "score": 267, "displayScore": "04:27" },
+        { "username": "Steven", "score": 267, "displayScore": "04:27" },
         { "username": "Claire", "score": 300, "displayScore": "05:00" },
         { "username": "Nadine", "score": 310, "displayScore": "05:10" }
       ]
