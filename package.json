@@ -10,7 +10,8 @@
     "build": "node build/build.js",
     "e2e": "node test/e2e/runner.js",
     "unit": "jest",
-    "test": "npm run e2e"
+    "test": "npm run e2e",
+    "deploy": "sh deploy.sh"
   },
   "dependencies": {
     "har-validator": "^5.1.3",
