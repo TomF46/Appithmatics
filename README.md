@@ -1,6 +1,6 @@
 # Appathematics
 
-Found at https://appathematics.tomfylesdev.com
+## Original VUE version (this has been re created/ improved in react https://github.com/TomF46/Appathematics)
 
 Appathematics is a PWA (progressive web app) which allows you to race against the clock to answer randomly generated question sets of addition, subtraction, multiplication, and division of varying length and difficulty.
 
@@ -17,5 +17,3 @@ Created using the Vue framework and implementing the following technolgies
 - Vuex for state management (The vue enviroments implementation of the Redux pattern)
 - Jest testing framework for unit tests
 - Nightwatch testing framework for end to end tests
-
-This is automatically built and deployed at https://appathematics.tomfylesdev.com using AWS Amplify and Route 53
